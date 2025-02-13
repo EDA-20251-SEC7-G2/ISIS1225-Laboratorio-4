@@ -1,23 +1,23 @@
-from DataStructures.List import array_list as arr
+from DataStructures.List import single_linked_list as sgl
 def new_queue():
-    return arr.new_list()
+    return sgl.new_list()
 
 def enqueue(my_queue,element):
     if is_empty(my_queue):
-        arr.add_first(my_queue,element)
+        sgl.add_first(my_queue,element)
     else:
-        arr.add_last(my_queue,element)
+        sgl.add_last(my_queue,element)
     return my_queue
 
 def is_empty(my_queue):
-    return arr.is_empty(my_queue)
+    return sgl.is_empty(my_queue)
 
 def size(my_queue):
-    return arr.size(my_queue)
+    return sgl.size(my_queue)
 
 def dequeue(my_queue):
-    dev = arr.get_element(my_queue,0)
-    arr.remove_last(my_queue)
+    dev = sgl.get_element(my_queue,0)
+    sgl.remove_last(my_queue)
     return dev
 
 def peek(my_queue):
