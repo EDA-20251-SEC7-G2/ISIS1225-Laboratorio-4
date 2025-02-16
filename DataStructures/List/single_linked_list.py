@@ -94,8 +94,8 @@ def remove_first(my_list):
     if my_list["size"] > 0:
         node = my_list["first"]
         removed_info = node["info"]
-        
-    
+        my_list['first']= node['next']
+    my_list['size']-=1
         
     return removed_info
 
@@ -105,13 +105,18 @@ def remove_last(my_list):
     if my_list["size"] > 0:
         if my_list["first"] == my_list ["last"]:
             removed_info = remove_first(my_list)
+            my_list['first']=None
+            my_list['last']=None
             
         else:
             current_node = my_list["first"]
                                    
             while current_node["next"] != my_list["last"]:
                 current_node = current_node["next"]
-                        
+            removed_info = my_list['last']['info']
+            current_node['next']=None
+            my_list['last']=current_node
+    my_list['size']-=1
     return removed_info
 
 def insert_element(my_list, element, pos):
