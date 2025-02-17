@@ -1,8 +1,7 @@
 def new_list():
-    newlist = {
-        'elements': [],
-        'size': 0
-    }
+    newlist = {'elements': [],
+                'size': 0
+            }
     return newlist
 
 def get_element(my_list,index):
@@ -44,13 +43,24 @@ def first_element(my_list):
     return my_list['elements'][0]
 
 def is_empty(my_list):
-    return bool(my_list['elements'])
+    return my_list["size"] == 0
 
 def remove_first(my_list):
-    return my_list['elements'].pop(0)
+    if not is_empty(my_list):
+        elemento = my_list['elements'].pop(0)
+        my_list["size"] -= 1
+        return elemento
+    else:
+        raise Exception
+
 
 def remove_last(my_list):
-    return my_list['elements'].pop(-1)
+    if not is_empty(my_list):
+        elemento = my_list['elements'].pop(-1)
+        my_list["size"] -= 1
+        return elemento
+    else:
+        raise Exception
 
 def delete_element(my_list,pos):
     my_list['elements'].pop(pos)
