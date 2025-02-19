@@ -59,7 +59,7 @@ def new_logic():
     catalog['tags'] = lt.new_list()
     catalog['book_tags'] = lt.new_list()
     # TODO Implementar la inicialización de la lista de asociación de libros y tags
-    catalog['books_to_read'] = lt.newlist()
+    catalog['books_to_read'] = lt.new_list()
     catalog["book_sublist"] = lt.new_list()
     return catalog
 
@@ -120,7 +120,7 @@ def load_books_to_read(catalog):
     Carga la información del archivo to_read y los agrega a la lista de libros por leer
     """
     # TODO Implementar la carga de los libros por leer del archivo to_read
-    bookstoreadfile = data_dir + '/book_tag-small.csv'
+    bookstoreadfile = data_dir + '/book_tags-small.csv'
     input_file = csv.DictReader(open(bookstoreadfile, encoding='utf-8'))
     for booktoread in input_file:
         add_book_to_read(catalog, booktoread)
@@ -157,7 +157,7 @@ def get_user_position_on_queue(catalog, user_id, book_id):
     
     for user in getqueue:  
         if user == user_id:
-            user_position=position
+            position = user_position
         user_position += 1  
 
     return position
