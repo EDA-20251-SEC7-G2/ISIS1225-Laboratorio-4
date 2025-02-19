@@ -120,7 +120,7 @@ def load_books_to_read(catalog):
     Carga la información del archivo to_read y los agrega a la lista de libros por leer
     """
     # TODO Implementar la carga de los libros por leer del archivo to_read
-    bookstoreadfile = data_dir + '/book_tags-small.csv'
+    bookstoreadfile = data_dir + '/to_read.csv'
     input_file = csv.DictReader(open(bookstoreadfile, encoding='utf-8'))
     for booktoread in input_file:
         add_book_to_read(catalog, booktoread)
@@ -153,7 +153,7 @@ def get_user_position_on_queue(catalog, user_id, book_id):
     # TODO Completar la función que retorna la posición de un usuario en la cola para leer un libro. Se debe usar el TAD Cola para resolver el requerimiento.
     getqueue = catalog["books_to_read"].get(book_id, queue)  
     user_position = 0  
-
+    position = None
     
     for user in getqueue:  
         if user == user_id:
